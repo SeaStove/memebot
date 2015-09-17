@@ -3,7 +3,7 @@ var request = require('request');
 
 function send (payload, callback) {
 	var path = process.env.SLACKPOST;
-	var uri = 'https://hooks.slack.com/services' + path;
+	var uri = path;
 
 	request({
 		uri: uri,

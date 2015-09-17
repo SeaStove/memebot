@@ -1,5 +1,24 @@
 var request = require('request');
 
+
+function send (payload, callback) {
+	var path = process.env.SLACKPOST;
+	var uri = 'https://hooks.slack.com/services' + path;
+
+	request({
+		uri: uri,
+		method: 'POST',
+		body: JSON.stringify(payload)
+		}, function (error, response, body) {
+		if (error) {
+			return callback(error);
+		}
+
+		callback(null, response.statusCode, body);
+	});
+}
+
+
 module.exports = function (req, res, next) {
 	
 	var botPayload;
@@ -21,20 +40,3 @@ module.exports = function (req, res, next) {
 	});
 
 };
-
-function send (payload, callback) {
-	var path = process.env.SLACKPOST;
-	var uri = 'https://hooks.slack.com/services' + path;
-
-	request({
-		uri: uri,
-		method: 'POST',
-		body: JSON.stringify(payload)
-		}, function (error, response, body) {
-		if (error) {
-			return callback(error);
-		}
-
-		callback(null, response.statusCode, body);
-	});
-}

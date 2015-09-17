@@ -1,6 +1,8 @@
 var request = require('request');
 
 module.exports = function (req, res, next) {
+	
+	var botPayload;
 
 	botPayload.text = "Here's a meme!";
 	botPayload.username = "coolmemebot";

@@ -21,7 +21,7 @@ function send (payload, callback) {
 
 module.exports = function (req, res, next) {
 	
-	var botPayload;
+	var botPayload = {};
 
 	botPayload.text = "Here's a meme!";
 	botPayload.username = "coolmemebot";

@@ -23,7 +23,7 @@ module.exports = function (req, res, next) {
 	
 	var botPayload = {};
 
-	botPayload.text = "Here's a meme!";
+	botPayload.text = "Here's a meme!" + "http://i.imgur.com/Kzv9xfy.png";
 	botPayload.username = "coolmemebot";
 	botPayload.channel = req.body.channel_id;
 	botPayload.icon_emoji = ':squirrel:';
